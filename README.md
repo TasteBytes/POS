@@ -5,7 +5,7 @@ A simple Point-of-sale application and website built with **ExpressJS** and **No
 - Firebase SDK `3.7.5`
   - JSON Datastore
   - Simple email/password OAuth authentication. Support for Google/Twitter/Github possible later
-- Heroku for app hosting.
+- Heroku for app hosting
 - Semantic UI with SASS
 - Handlebars
 
@@ -20,7 +20,7 @@ Quick Start
 Ensure you have the latest version of node (node version > 7.6) and npm installed. You can install these @ https://nodejs.org/en/
 
 ```shell
-$ git clone https://github.com/tasteBytes/dashboard
+$ git clone https://github.com/tasteBytes/pos
 $ cd dashboard
 $ npm install
 $ npm run dev
@@ -28,7 +28,7 @@ $ npm run dev
 The server will now be open at localhost:3000 and will restart with any changes to the project.
 
 
-On Master push, the app will be updated @ <a href="https://tastebytes-pos.herokuapp.com" target="_blank">tastebytes-pos.herokuapp.com</a>.
+On Master push, the app will be updated @ <a href="https://tastebytes-pos.herokuapp.com" target="_blank">https://tastebytes-pos.herokuapp.com</a>.
 
 Commands
 --------
