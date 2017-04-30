@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var userService = require('./user_service');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -24,6 +25,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+
+//Login the user
+app.post('/userlogin', function(req, res) {
+  var UserEmail = req.body['email'];
+	var UserPass = req.body['password'];
+	userService.authenticate(UserEmail, UserPass,
+		function(error, uid) {
+			if (error) {
+				return res.status(500).send(error);
+			} else {
+        return res.redirect('/');
+		}
+	});
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
