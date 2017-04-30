@@ -1,0 +1,30 @@
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <form class="ui large form" action="userlogin" method="post">
+            <div class="ui stacked segment">
+                <h2 class="ui teal image header">
+                    <div class="content">
+                      Welcome Back.
+                    </div>
+                  </h2>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" placeholder="E-mail address">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+                <input type="submit" class="ui fluid large teal submit button" value="Login"></input>
+            </div>
+            <div class="ui error message"></div>
+        </form>
+        <div class="ui message">
+            New to us? <a href="/register">Sign Up</a>
+        </div>
+    </div>
+</div>
