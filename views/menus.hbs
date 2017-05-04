@@ -2,8 +2,9 @@
   <div class="five wide column thin border">
       <p>Table Number: {{tableNumber}}</p>
       <p>Order information here</p>
-      <div class="ui button" onclick="test()">test</div>
-      <div class="ui button" onclick="test2()">test2</div>
+      <div class="ui button" onclick="test()">add item</div>
+      <div class="ui button" onclick="test2()">test items</div>
+      <div class="ui button" onclick="test3()">reset items</div>
   </div>
   <div class="eleven wide column">
     <div class="ui pointing secondary menu">
@@ -32,7 +33,7 @@
               <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                 <div class="ui four cards">
                   {{#each this}}
-                    <div class="ui raised card">
+                    <div class="ui raised card" onclick="addOrder(this)" name="{{this.Name}}" cost="{{this.Price}}">
                       <div class="image">
                         <img>
                       </div>
@@ -47,7 +48,7 @@
               <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                 <div class="ui four cards">
                   {{#each this}}
-                    <div class="ui raised card">
+                    <div class="ui raised card" onclick="addOrder(this)" name="{{this.Name}}" cost="{{this.Price}}">
                       <div class="image">
                         <img>
                       </div>
@@ -77,7 +78,7 @@
               <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                 <div class="ui four cards">
                   {{#each this}}
-                    <div class="ui raised card">
+                    <div class="ui raised card" onclick="addOrder(this)" name="{{this.Name}}" cost="{{this.Price}}">
                       <div class="image">
                         <img>
                       </div>
@@ -92,7 +93,7 @@
               <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
                 <div class="ui four cards">
                   {{#each this}}
-                    <div class="ui raised card">
+                    <div class="ui raised card" onclick="addOrder(this)" name="{{this.Name}}" cost="{{this.Price}}">
                       <div class="image">
                         <img>
                       </div>
