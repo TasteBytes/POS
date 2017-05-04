@@ -25,15 +25,41 @@ Table Number: {{tableNumber}}
         {{#each this}}
           {{#if @first}}
             <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              {{#each this}}
-                {{@key}}
-              {{/each}}
+              <div class="ui four cards">
+                {{#each this}}
+                  <div class="ui raised card">
+                    <div class="image">
+                      <img>
+                    </div>
+                    <div class="extra">
+                      Item# {{@key}}
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                    <div class="extra content">
+                      <i class="clock icon"></i> This is the timer
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
             </div>
           {{else}}
             <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              {{#each this}}
-                {{@key}}
-              {{/each}}
+              <div class="ui four cards">
+                {{#each this}}
+                  <div class="ui raised card">
+                    <div class="image">
+                      <img>
+                    </div>
+                    <div class="extra">
+                      Item# {{@key}}
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                    <div class="extra content">
+                      <i class="clock icon"></i> This is the timer
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
             </div>
           {{/if}}
         {{/each}}
@@ -52,15 +78,41 @@ Table Number: {{tableNumber}}
         {{#each this}}
           {{#if @first}}
             <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              {{#each this}}
-                {{@key}}
-              {{/each}}
+              <div class="ui four cards">
+                {{#each this}}
+                  <div class="ui raised card">
+                    <div class="image">
+                      <img>
+                    </div>
+                    <div class="extra">
+                      Item# {{@key}}
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                    <div class="extra content">
+                      <i class="clock icon"></i> This is the timer
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
             </div>
           {{else}}
             <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              {{#each this}}
-                {{@key}}
-              {{/each}}
+              <div class="ui four cards">
+                {{#each this}}
+                  <div class="ui raised card">
+                    <div class="image">
+                      <img>
+                    </div>
+                    <div class="extra">
+                      Item# {{@key}}
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                    <div class="extra content">
+                      <i class="clock icon"></i> This is the timer
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
             </div>
           {{/if}}
         {{/each}}
@@ -68,4 +120,3 @@ Table Number: {{tableNumber}}
     {{/if}}
   {{/each}}
 </div>
-aaa aaa
