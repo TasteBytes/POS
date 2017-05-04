@@ -45,51 +45,45 @@ if (typeof(Storage) !== "undefined") {
   if(orders==null){
     localStorage.setItem("orders", '[]');
   }
+
+  var tables = localStorage.getItem("tables");
+  if(tables==null){
+    tables = '[]';
+    localStorage.setItem("tables",tables);
+  }
 } else {
   console.log("No Storage");
 }
 
-function addOrder(tag){
+function addOrder(tag, tableNumber){
   var name = tag.getAttribute("name");
   var cost = tag.getAttribute("cost");
   if(typeof(Storage)!=="undefined") {
-    var orders=JSON.parse(localStorage.getItem("orders"));
+    var tables=JSON.parse(localStorage.getItem("tables"));
+    if(tables[tableNumber]==null){
+      tables[tableNumber]=[];
+    }
+    var orders=tables[tableNumber];
     var order={
       "name": name,
       "cost": cost
     };
     orders.push(order);
-    localStorage.setItem("orders",JSON.stringify(orders));
-  }
-}
-
-//test function for adding to orders storage
-function test() {
-  if (typeof(Storage) !== "undefined") {
-    var orders = JSON.parse(localStorage.getItem("orders"));
-    var json = {
-      "name": "test",
-      "cost": 5
-    };
-    orders.push(json);
-    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem("tables",JSON.stringify(tables));
   }
 }
 
 //test function to read orders storage
-function test2() {
+function test() {
   if (typeof(Storage) !== "undefined") {
-    var orders = JSON.parse(localStorage.getItem("orders"));
-    console.log("Items");
-    for (i = 0; i < orders.length; i++) {
-      console.log("Name: "+orders[i].name+" Cost: "+orders[i].cost);
-    }
+    var tables = JSON.parse(localStorage.getItem("tables"));
+    console.log(tables);
   }
 }
 
 //test function to reset orders storage
-function test3() {
+function testreset() {
   if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("orders",'[]');
+    localStorage.setItem("tables",'[]');
   }
 }
