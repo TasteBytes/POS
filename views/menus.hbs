@@ -1,114 +1,119 @@
-Table Number: {{tableNumber}}
+<div class="ui grid">
+  <div class="five wide column thin border">
+      <p>Table Number: {{tableNumber}}</p>
+      <p>Order information here</p>
+  </div>
+  <div class="eleven wide column">
 
-<div class="ui basic segment">
-  <div class="ui pointing secondary menu">
+    <div class="ui pointing secondary menu">
+      {{#each menus}}
+        {{#if @first}}
+          <a class="active item" data-tab="{{@key}}">{{@key}}</a>
+        {{else}}
+          <a class="item" data-tab="{{@key}}">{{@key}}</a>
+        {{/if}}
+      {{/each}}
+    </div>
     {{#each menus}}
       {{#if @first}}
-        <a class="active item" data-tab="{{@key}}">{{@key}}</a>
+        <div class="ui active tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+              {{/if}}
+            {{/each}}
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <div class="ui four cards">
+                  {{#each this}}
+                    <div class="ui raised card">
+                      <div class="image">
+                        <img>
+                      </div>
+                      <div class="extra">
+                        {{this.Name}}
+                        <div class="ui star rating" data-rating="4"></div>
+                      </div>
+
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <div class="ui four cards">
+                  {{#each this}}
+                    <div class="ui raised card">
+                      <div class="image">
+                        <img>
+                      </div>
+                      <div class="extra">
+                        {{this.Name}}
+                        <div class="ui star rating" data-rating="4"></div>
+                      </div>
+
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
       {{else}}
-        <a class="item" data-tab="{{@key}}">{{@key}}</a>
+        <div class="ui tab segment" data-tab="{{@key}}">
+          <div class="ui top attached tabular menu">
+            {{#each this}}
+              {{#if @first}}
+                <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+              {{else}}
+                <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
+              {{/if}}
+            {{/each}}
+          </div>
+          {{#each this}}
+            {{#if @first}}
+              <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <div class="ui four cards">
+                  {{#each this}}
+                    <div class="ui raised card">
+                      <div class="image">
+                        <img>
+                      </div>
+                      <div class="extra">
+                        {{this.Name}}
+                        <div class="ui star rating" data-rating="4"></div>
+                      </div>
+
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{else}}
+              <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
+                <div class="ui four cards">
+                  {{#each this}}
+                    <div class="ui raised card">
+                      <div class="image">
+                        <img>
+                      </div>
+                      <div class="extra">
+                        {{this.Name}}
+                        <div class="ui star rating" data-rating="4"></div>
+                      </div>
+
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
       {{/if}}
     {{/each}}
   </div>
-  {{#each menus}}
-    {{#if @first}}
-      <div class="ui active tab segment" data-tab="{{@key}}">
-        <div class="ui top attached tabular menu">
-          {{#each this}}
-            {{#if @first}}
-              <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
-            {{else}}
-              <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
-            {{/if}}
-          {{/each}}
-        </div>
-        {{#each this}}
-          {{#if @first}}
-            <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              <div class="ui four cards">
-                {{#each this}}
-                  <div class="ui raised card">
-                    <div class="image">
-                      <img>
-                    </div>
-                    <div class="extra">
-                      {{this.Name}}
-                      <div class="ui star rating" data-rating="4"></div>
-                    </div>
-
-                  </div>
-                {{/each}}
-              </div>
-            </div>
-          {{else}}
-            <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              <div class="ui four cards">
-                {{#each this}}
-                  <div class="ui raised card">
-                    <div class="image">
-                      <img>
-                    </div>
-                    <div class="extra">
-                      {{this.Name}}
-                      <div class="ui star rating" data-rating="4"></div>
-                    </div>
-
-                  </div>
-                {{/each}}
-              </div>
-            </div>
-          {{/if}}
-        {{/each}}
-      </div>
-    {{else}}
-      <div class="ui tab segment" data-tab="{{@key}}">
-        <div class="ui top attached tabular menu">
-          {{#each this}}
-            {{#if @first}}
-              <a class="active item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
-            {{else}}
-              <a class="item" data-tab="{{@../key}}/{{@key}}">{{@key}}</a>
-            {{/if}}
-          {{/each}}
-        </div>
-        {{#each this}}
-          {{#if @first}}
-            <div class="ui active bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              <div class="ui four cards">
-                {{#each this}}
-                  <div class="ui raised card">
-                    <div class="image">
-                      <img>
-                    </div>
-                    <div class="extra">
-                      {{this.Name}}
-                      <div class="ui star rating" data-rating="4"></div>
-                    </div>
-
-                  </div>
-                {{/each}}
-              </div>
-            </div>
-          {{else}}
-            <div class="ui bottom attached tab segment" data-tab="{{@../key}}/{{@key}}">
-              <div class="ui four cards">
-                {{#each this}}
-                  <div class="ui raised card">
-                    <div class="image">
-                      <img>
-                    </div>
-                    <div class="extra">
-                      {{this.Name}}
-                      <div class="ui star rating" data-rating="4"></div>
-                    </div>
-
-                  </div>
-                {{/each}}
-              </div>
-            </div>
-          {{/if}}
-        {{/each}}
-      </div>
-    {{/if}}
-  {{/each}}
 </div>
