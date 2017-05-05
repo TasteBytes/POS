@@ -17,9 +17,9 @@ async function getMenus() {
 router.get('/', function(req, res, next) {
   var signedIn = false;
   if (userService.firebase.auth().currentUser != null) {
-    res.render('index', { title: 'TatseBytes - POS', styles: ['style.css', 'receipt.css'], javascript: ['index.js']});
+    res.render('index', { title: 'TasteBytes - POS', styles: ['style.css', 'receipt.css'], javascript: ['index.js', 'timer.js']});
   } else {
-    res.render('login', { title: 'TatseBytes - POS', styles: ['auth.css']});
+    res.render('login', { title: 'TasteBytes - POS', styles: ['auth.css']});
   }
 });
 
@@ -41,7 +41,7 @@ router.get('/:tableNumber', function(req, res, next) {
             })
         })
   } else {
-    res.render('login', { title: 'TaseBytes - POS', styles: ['auth.css']});
+    res.render('login', { title: 'TasteBytes - POS', styles: ['auth.css']});
   }
 });
 
