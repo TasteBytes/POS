@@ -15,37 +15,8 @@ $(document).ready(function() {
   });
 });;
 
-//--SAMPLE DATA?--//
-/*
-  tables=[
-    0:{
-
-    },
-    1:{
-
-    },
-    tableNumber:{
-      orders:[
-        0:{
-          name:name,
-          cost:cost
-        },
-        1:{
-          name:name2,
-          cost:cost2
-        }
-      ]
-    }
-  ]
-*/
-
 //set up storage
 if (typeof(Storage) !== "undefined") {
-  var orders=localStorage.getItem("orders");
-  if(orders==null){
-    localStorage.setItem("orders", '[]');
-  }
-
   var tables = localStorage.getItem("tables");
   if(tables==null){
     tables = '[]';
@@ -64,16 +35,26 @@ function addOrder(tag, tableNumber){
       tables[tableNumber]=[];
     }
     var orders=tables[tableNumber];
+    //increase quantity of item if there is already one
+    for(i=0;i<orders.length;i++){
+      if(name==orders[i].name){
+        orders[i].qty+=1;
+        localStorage.setItem("tables",JSON.stringify(tables));
+        return;
+      }
+    }
+    //didn't find one, add a new item
     var order={
       "name": name,
-      "cost": cost
+      "cost": cost,
+      "qty": 1
     };
     orders.push(order);
     localStorage.setItem("tables",JSON.stringify(tables));
   }
 }
 
-//test function to read orders storage
+//test function to read tables storage
 function test() {
   if (typeof(Storage) !== "undefined") {
     var tables = JSON.parse(localStorage.getItem("tables"));
@@ -81,7 +62,7 @@ function test() {
   }
 }
 
-//test function to reset orders storage
+//test function to reset tables storage
 function testreset() {
   if (typeof(Storage) !== "undefined") {
     localStorage.setItem("tables",'[]');
