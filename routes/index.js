@@ -41,7 +41,7 @@ router.get('/:tableNumber', function(req, res, next) {
             })
         })
   } else {
-    res.render('login', { title: 'TatseBytes - POS', styles: ['auth.css']});
+    res.render('login', { title: 'TaseBytes - POS', styles: ['auth.css']});
   }
 });
 
