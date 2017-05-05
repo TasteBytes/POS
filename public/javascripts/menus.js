@@ -81,7 +81,7 @@ function addOrder(tag, tableNumber){
       if(name==orders[i].name){
         orders[i].qty+=1;
         localStorage.setItem("tables",JSON.stringify(tables));
-        updateInvoice(orders[i].qty,name,cost);
+        updateInvoice(name,cost);
         return;
       }
     }
@@ -91,7 +91,7 @@ function addOrder(tag, tableNumber){
       "cost": cost,
       "qty": 1
     };
-    updateInvoice(order.qty,order.name,order.cost);
+    updateInvoice(order.name,order.cost);
     orders.push(order);
     localStorage.setItem("tables",JSON.stringify(tables));
   }
