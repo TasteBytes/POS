@@ -36,7 +36,7 @@ router.get('/:tableNumber', function(req, res, next) {
                 menus: menus,
                 tableNumber: tableNumber,
                 title: 'POS - Menus',
-                styles: ['style.css'],
+                styles: ['style.css', 'receipt.css'],
                 javascript: ['menus.js']
             })
         })

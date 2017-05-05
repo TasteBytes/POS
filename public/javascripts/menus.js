@@ -13,6 +13,7 @@ $(document).ready(function() {
   $('.tabular.menu .item').tab({
     history: false
   });
+  $('.invoice-order-number').text('Order #: '+localStorage.getItem('orderNumber'));
 });;
 
 //set up storage
@@ -32,6 +33,21 @@ if (typeof(Storage) !== "undefined") {
   console.log("No Storage");
 }
 
+function updateInvoice(qty,name,cost){
+  console.log(qty+name+cost);
+  $('#asdf').append(
+    `<tr class="item">
+      <td>
+        ${qty} ${name}
+      </td>
+
+      <td>
+        $${cost}
+      </td>
+    </tr>`
+  );
+}
+
 function addOrder(tag, tableNumber){
   var name = tag.getAttribute("name");
   var cost = tag.getAttribute("cost");
@@ -46,6 +62,7 @@ function addOrder(tag, tableNumber){
       if(name==orders[i].name){
         orders[i].qty+=1;
         localStorage.setItem("tables",JSON.stringify(tables));
+        updateInvoice(orders[i].qty,name,cost);
         return;
       }
     }
@@ -55,6 +72,7 @@ function addOrder(tag, tableNumber){
       "cost": cost,
       "qty": 1
     };
+    updateInvoice(order.qty,order.name,order.cost);
     orders.push(order);
     localStorage.setItem("tables",JSON.stringify(tables));
   }

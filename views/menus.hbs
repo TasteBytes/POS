@@ -1,9 +1,77 @@
 <div class="ui grid">
   <div class="five wide column thin border">
-      <p>Table Number: {{tableNumber}}</p>
-      <p>Order information here</p>
-      <div class="ui button" onclick="test()">test items</div>
-      <div class="ui button" onclick="testreset()">reset items</div>
+    <p>Table Number: {{tableNumber}}</p>
+    <p>Order information here</p>
+    <div class='ui button' onclick="updateInvoice()">test</div>
+    <div class="invoice-box">
+      <table class="invoice-table" cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <img src="../logo.png" style="width:100%; max-width:300px;">
+                </td>
+
+                <td>
+                  <div class="invoice-order-number">Order #: 0</div>
+                  Table #: {{tableNumber}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td>
+            Item
+          </td>
+
+          <td>
+            Price
+          </td>
+        </tr>
+        <div class='invoiceItems' id="asdf">
+          <tr class="item">
+            <td>
+              1 Burrito (carne asada)
+            </td>
+
+            <td>
+              $7.20
+            </td>
+          </tr>
+          <tr class="item">
+            <td>
+              1 Burrito (carne asada)
+            </td>
+
+            <td>
+              $7.20
+            </td>
+          </tr>
+        </div>
+        <tr class="total">
+          <td></td>
+
+          <td>
+            Sub Total: $43.20
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+          <td>
+            Tax (9.0%): $3.89
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+
+          <td>
+            Total: $47.09
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="eleven wide column">
     <div class="ui pointing secondary menu">
