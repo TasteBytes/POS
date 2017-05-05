@@ -22,6 +22,12 @@ if (typeof(Storage) !== "undefined") {
     tables = '[]';
     localStorage.setItem("tables",tables);
   }
+
+  //If this is the first order of the day, set it to one.
+  var orderNumber = localStorage.getItem("orderNumber");
+  if(orderNumber==null){
+    localStorage.setItem("orderNumber",1);
+  }
 } else {
   console.log("No Storage");
 }
