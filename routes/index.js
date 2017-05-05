@@ -17,7 +17,7 @@ async function getMenus() {
 router.get('/', function(req, res, next) {
   var signedIn = false;
   if (userService.firebase.auth().currentUser != null) {
-    res.render('index', { title: 'TatseBytes - POS', styles: ['style.css']});
+    res.render('index', { title: 'TatseBytes - POS', styles: ['style.css', 'receipt.css']});
   } else {
     res.render('login', { title: 'TatseBytes - POS', styles: ['auth.css']});
   }
