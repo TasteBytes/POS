@@ -1,170 +1,271 @@
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>A simple, clean, and responsive HTML invoice template</title>
+<div class="ui grid">
+  <div class="five wide column thin border">
 
-    <style>
-    .invoice-box{
-        max-width:425px;
-        padding:10px;
-        margin:auto;
-        border:1px solid #eee;
-        box-shadow:0 0 10px rgba(0, 0, 0, .15);
-        font-size:16px;
-        line-height:24px;
-        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-        color:#555;
-    }
-
-    .invoice-box table{
-        width:100%;
-        line-height:inherit;
-        text-align:left;
-    }
-
-    .invoice-box table td{
-        padding:5px;
-        vertical-align:top;
-    }
-
-    .invoice-box table tr td:nth-child(2){
-        text-align:right;
-    }
-
-    .invoice-box table tr.top table td{
-        padding-bottom:20px;
-    }
-
-    .invoice-box table tr.top table td.title{
-        font-size:45px;
-        line-height:45px;
-        color:#333;
-    }
-
-    .invoice-box table tr.information table td{
-        padding-bottom:40px;
-    }
-
-    .invoice-box table tr.heading td{
-        background:#eee;
-        border-bottom:1px solid #ddd;
-        font-weight:bold;
-    }
-
-    .invoice-box table tr.details td{
-        padding-bottom:20px;
-    }
-
-    .invoice-box table tr.item td{
-        border-bottom:1px solid #eee;
-    }
-
-    .invoice-box table tr.item.last td{
-        border-bottom:none;
-    }
-
-    .invoice-box table tr.total td:nth-child(2){
-        border-top:2px solid #eee;
-        font-weight:bold;
-    }
-
-    @media only screen and (max-width: 600px) {
-        .invoice-box table tr.top table td{
-            width:100%;
-            display:block;
-            text-align:center;
-        }
-
-        .invoice-box table tr.information table td{
-            width:100%;
-            display:block;
-            text-align:center;
-        }
-    }
-    </style>
-</head>
-
-<body>
     <div class="invoice-box">
-        <table cellpadding="0" cellspacing="0">
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <img src="../logo.png" style="width:100%; max-width:300px;">
-                            </td>
-
-                            <td>
-                                Order #: 1<br>
-                                Table #: 1
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="heading">
-                <td>
-                    Item
+      <table cellpadding="0" cellspacing="0">
+        <tr class="top">
+          <td colspan="2">
+            <table>
+              <tr>
+                <td class="title">
+                  <img src="../logo.png" style="width:100%; max-width:300px;">
                 </td>
 
                 <td>
-                    Price
+                  Order #: 1<br> Table #: 1
                 </td>
-            </tr>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr class="heading">
+          <td>
+            Item
+          </td>
 
-            <tr class="item">
-                <td>
-                    1 Burrito (carne asada)
-                </td>
+          <td>
+            Price
+          </td>
+        </tr>
 
-                <td>
-                    $7.20
-                </td>
-            </tr>
+        <tr class="item">
+          <td>
+            1 Burrito (carne asada)
+          </td>
 
-            <tr class="item">
-                <td>
-                    1 Chips
-                </td>
+          <td>
+            $7.20
+          </td>
+        </tr>
 
-                <td>
-                    $1.00
-                </td>
+        <tr class="item">
+          <td>
+            1 Chips
+          </td>
 
-            </tr>
+          <td>
+            $1.00
+          </td>
 
-            <tr class="item last">
-                <td>
-                    10 Coronas
-                </td>
+        </tr>
 
-                <td>
-                    $35.00
-                </td>
-            </tr>
+        <tr class="item last">
+          <td>
+            10 Coronas
+          </td>
 
-            <tr class="total">
-                <td></td>
+          <td>
+            $35.00
+          </td>
+        </tr>
 
-                <td>
-                    Sub Total: $43.20
-                </td>
-            </tr>
-            <tr class="total">
-                <td></td>
-                <td>
-                    Tax (9.0%): $3.89
-                </td>
-            </tr>
-            <tr class="total">
-                <td></td>
+        <tr class="total">
+          <td></td>
 
-                <td>
-                    Total: $47.09
-                </td>
-            </tr>
-        </table>
+          <td>
+            Sub Total: $43.20
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+          <td>
+            Tax (9.0%): $3.89
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+
+          <td>
+            Total: $47.09
+          </td>
+        </tr>
+      </table>
+      <div class="ui button" onclick="test()">test items</div>
+      <div class="ui button" onclick="testreset()">reset items</div>
     </div>
-</body>
-</html>
+
+  </div>
+  <div class="eleven wide column thin border">
+    <div class="ui four cards">
+      <a class="card" href="/1">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 1
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/2">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 2
+          <div class="ui star rating" data-rating="2"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/3">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 3
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/4">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 4
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/5">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 5
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/6">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 6
+          <div class="ui star rating" data-rating="3"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/7">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 7
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/8">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 8
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/9">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 9
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/10">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 10
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/11">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 11
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/12">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 12
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/13">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 13
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/14">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 14
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+      <a class="card" href="/15">
+        <div class="image">
+          <img>
+        </div>
+        <div class="extra">
+          Table: 15
+          <div class="ui star rating" data-rating="4"></div>
+        </div>
+        <div class="extra content">
+          Timer goes here.
+        </div>
+      </a>
+    </div>
+  </div>
