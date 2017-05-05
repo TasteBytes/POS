@@ -14,6 +14,7 @@ $(document).ready(function() {
     history: false
   });
   $('.invoice-order-number').text('Order #: '+localStorage.getItem('orderNumber'));
+  loadInvoice(localStorage.getItem('activeTableNumber'));
 });;
 
 //set up storage
@@ -33,14 +34,29 @@ if (typeof(Storage) !== "undefined") {
   console.log("No Storage");
 }
 
-function updateInvoice(qty,name,cost){
-  console.log(qty+name+cost);
-  $('#asdf').append(
+//loads previous orders from this table
+function loadInvoice(tableNumber){
+  console.log('Table #: '+tableNumber);
+  var tables=JSON.parse(localStorage.getItem('tables'));
+  var orders = tables[tableNumber];
+  console.log(orders);
+  for(i=0;i<orders.length;i++){
+    var name = orders[i].name;
+    var cost = orders[i].cost;
+    var qty = orders[i].qty;
+    for(j=0;j<qty;j++){
+      updateInvoice(name,cost);
+    }
+  }
+}
+
+//adds order to the table
+function updateInvoice(name,cost){
+  $('#orders-table').append(
     `<tr class="item">
       <td>
-        ${qty} ${name}
+       ${name}
       </td>
-
       <td>
         $${cost}
       </td>
@@ -48,6 +64,9 @@ function updateInvoice(qty,name,cost){
   );
 }
 
+
+//adds a new order to the local storage
+//calls updateInvoice
 function addOrder(tag, tableNumber){
   var name = tag.getAttribute("name");
   var cost = tag.getAttribute("cost");
@@ -87,8 +106,10 @@ function test() {
 }
 
 //test function to reset tables storage
-function testreset() {
+function resetOrders(tableNumber) {
   if (typeof(Storage) !== "undefined") {
-    localStorage.setItem("tables",'[]');
+    var tables = JSON.parse(localStorage.getItem('tables'));
+    tables[tableNumber]=null;
+    localStorage.setItem("tables",JSON.stringify(tables));
   }
 }
