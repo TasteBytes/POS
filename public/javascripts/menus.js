@@ -35,10 +35,10 @@ if (typeof(Storage) !== "undefined") {
 
 function updateInvoice(qty,name,cost){
   console.log(qty+name+cost);
-  $('#asdf').append(
+  $('#orders-table').append(
     `<tr class="item">
       <td>
-        ${qty} ${name}
+       ${name}
       </td>
 
       <td>
