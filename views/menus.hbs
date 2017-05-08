@@ -1,7 +1,5 @@
 <div class="ui grid">
   <div class="five wide column thin border">
-    <p>Table Number: {{tableNumber}}</p>
-    <p>Order information here</p>
     <div class="invoice-box">
       <table class="invoice-table" cellpadding="0" cellspacing="0">
         <tr class="top">
@@ -22,37 +20,8 @@
         </tr>
       </table>
       <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0"><!-- style="display:block;height:300px;overflow:auto" -->
-        <tr class="heading">
-          <td>
-            Item
-          </td>
-
-          <td>
-            Price
-          </td>
-        </tr>
       </table>
-      <table class="invoice-table" cellpadding="0" cellspacing="0">
-        <tr class="total">
-          <td></td>
-
-          <td>
-            Sub Total: $43.20
-          </td>
-        </tr>
-        <tr class="total">
-          <td></td>
-          <td>
-            Tax (9.0%): $3.89
-          </td>
-        </tr>
-        <tr class="total">
-          <td></td>
-
-          <td>
-            Total: $47.09
-          </td>
-        </tr>
+      <table class="invoice-table" id='costs-table' cellpadding="0" cellspacing="0">
       </table>
     </div>
   </div>

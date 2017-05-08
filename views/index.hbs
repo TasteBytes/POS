@@ -2,7 +2,7 @@
   <div class="five wide column thin border">
 
     <div class="invoice-box">
-      <table cellpadding="0" cellspacing="0">
+      <table class="invoice-table" cellpadding="0" cellspacing="0">
         <tr class="top">
           <td colspan="2">
             <table>
@@ -12,97 +12,41 @@
                 </td>
 
                 <td>
-                  Order #: 1<br> Table #: 1
+                  <div class="invoice-order-number">Order #: 0</div>
+                  Table #: {{tableNumber}}
                 </td>
               </tr>
             </table>
           </td>
         </tr>
-        <tr class="heading">
-          <td>
-            Item
-          </td>
-
-          <td>
-            Price
-          </td>
-        </tr>
-
-        <tr class="item">
-          <td>
-            1 Burrito (carne asada)
-          </td>
-
-          <td>
-            $7.20
-          </td>
-        </tr>
-
-        <tr class="item">
-          <td>
-            1 Chips
-          </td>
-
-          <td>
-            $1.00
-          </td>
-
-        </tr>
-
-        <tr class="item last">
-          <td>
-            10 Coronas
-          </td>
-
-          <td>
-            $35.00
-          </td>
-        </tr>
-
-        <tr class="total">
-          <td></td>
-
-          <td>
-            Sub Total: $43.20
-          </td>
-        </tr>
-        <tr class="total">
-          <td></td>
-          <td>
-            Tax (9.0%): $3.89
-          </td>
-        </tr>
-        <tr class="total">
-          <td></td>
-
-          <td>
-            Total: $47.09
-          </td>
-        </tr>
       </table>
-      <div class="ui button" onclick="test()">test items</div>
-      <div class="ui button" onclick="testreset()">reset items</div>
+      <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0"><!-- style="display:block;height:300px;overflow:auto" -->
+      </table>
+      <table class="invoice-table" id='costs-table' cellpadding="0" cellspacing="0">
+      </table>
     </div>
+    <div class="ui button" onclick="test()">test items</div>
+    <div class="ui button" onclick="testreset()">reset items</div>
 
   </div>
   <div class="eleven wide column thin border">
-    <div class="ui four red cards" onclick="setTableNumber(1)">
-      <a class="red card" href="/1">
+    <div class="ui four red cards">
+      <a class="red card" href="/1" data-ref="1" onclick="setTable(this)">
         <div class="extra">
           Table: 1
         </div>
       </a>
-      <a class="red card" href="/2">
+      <a class="red card" href="/2" data-ref="2" onclick="setTable(this)">
         <div class="extra">
           Table: 2
         </div>
       </a>
-      <a class="red card" href="/3">
+      <a class="red card" href="/3" data-ref="3" onclick="setTable(this)">
         <div class="extra">
           Table: 3
         </div>
       </a>
-      <a class="red card" >
+      <a class="red card" href="/4" data-ref="4" onclick="setTable(this)">
         <div class="extra">
           <div>
           <div style="float:left">
@@ -117,57 +61,57 @@
         </div>
         </div>
       </a>
-      <a class="red card" href="/5">
+      <a class="red card" href="/5" data-ref="5" onclick="setTable(this)">
         <div class="extra">
           Table: 5
         </div>
       </a>
-      <a class="red card" href="/6">
+      <a class="red card" href="/6" data-ref="6" onclick="setTable(this)">
         <div class="extra">
           Table: 6
         </div>
       </a>
-      <a class="red card" href="/7">
+      <a class="red card" href="/7" data-ref="7" onclick="setTable(this)">
         <div class="extra">
           Table: 7
         </div>
       </a>
-      <a class="red card" href="/8">
+      <a class="red card" href="/8" data-ref="8" onclick="setTable(this)">
         <div class="extra">
           Table: 8
         </div>
       </a>
-      <a class="red card" href="/9">
+      <a class="red card" href="/9" data-ref="9" onclick="setTable(this)">
         <div class="extra">
           Table: 9
         </div>
       </a>
-      <a class="red card" href="/10">
+      <a class="red card" href="/10" data-ref="10" onclick="setTable(this)">
         <div class="extra">
           Table: 10
         </div>
       </a>
-      <a class="red card" href="/11">
+      <a class="red card" href="/11" data-ref="11" onclick="setTable(this)">
         <div class="extra">
           Table: 11
         </div>
       </a>
-      <a class="red card" href="/12">
+      <a class="red card" href="/12" data-ref="12" onclick="setTable(this)">
         <div class="extra">
           Table: 12
         </div>
       </a>
-      <a class="red card" href="/13">
+      <a class="red card" href="/13" data-ref="13" onclick="setTable(this)">
         <div class="extra">
           Table: 13
         </div>
       </a>
-      <a class="red card" href="/14">
+      <a class="red card" href="/14" data-ref="14" onclick="setTable(this)">
         <div class="extra">
           Table: 14
         </div>
       </a>
-      <a class="red card" href="/15">
+      <a class="red card" href="/15" data-ref="15" onclick="setTable(this)">
         <div class="extra">
           Table: 15
         </div>
