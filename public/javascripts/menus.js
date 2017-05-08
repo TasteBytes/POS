@@ -13,7 +13,7 @@ $(document).ready(function() {
   $('.tabular.menu .item').tab({
     history: false
   });
-  $('.invoice-order-number').text('Order #: '+localStorage.getItem('orderNumber'));
+  $('.invoice-order-number').text('Order #: '+ localStorage.getItem('orderNumber'));
   loadInvoice(localStorage.getItem('activeTableNumber'));
 });;
 
@@ -36,33 +36,69 @@ if (typeof(Storage) !== "undefined") {
 
 //loads previous orders from this table
 function loadInvoice(tableNumber){
-  console.log('Table #: '+tableNumber);
+  console.log('Table #: '+ tableNumber);
   var tables=JSON.parse(localStorage.getItem('tables'));
   var orders = tables[tableNumber];
-  console.log(orders);
-  for(i=0;i<orders.length;i++){
+  if (orders != null){
+  for(i=0; i <orders.length; i++){
     var name = orders[i].name;
     var cost = orders[i].cost;
     var qty = orders[i].qty;
-    for(j=0;j<qty;j++){
-      updateInvoice(name,cost);
-    }
   }
+  updateInvoice(orders);
+}
+}
+
+function updateCostTable(cost) {
+  var costs = `<tr class="total">
+            <td></td>
+            <td>
+              Sub Total: $${cost}
+            </td>
+          </tr>
+          <tr class="total">
+            <td></td>
+            <td>
+              Tax (9.0%): $${cost*.09}
+            </td>
+          </tr>
+          <tr class="total">
+            <td></td>
+            <td>
+              Total: $${cost + cost*.09}
+            </td>
+          </tr>`
+      $("#costs-table").html(costs)
 }
 
 //adds order to the table
-function updateInvoice(name,cost){
-  $('#orders-table').append(
-    `<tr class="item">
-      <td>
-       ${name}
-      </td>
-      <td>
-        $${cost}
-      </td>
-    </tr>`
-  );
+function updateInvoice(invoice){
+  var costTotal = 0;
+  var orders =`<tr class="heading">
+        <td>
+          Item
+        </td>
+
+        <td>
+          Price
+        </td>
+      </tr>`
+  for (var index = 0; index < invoice.length; index++){
+    costTotal += (parseInt(invoice[index].cost) * invoice[index].qty);
+      orders+=`<tr class="item">
+             <td>
+              ${invoice[index].qty} ${invoice[index].name}
+             </td>
+             <td>
+               $${invoice[index].qty * invoice[index].cost}
+             </td>
+           </tr>`
+  }
+  $("#orders-table").html(orders)
+  updateCostTable(costTotal);
 }
+
+
 
 
 //adds a new order to the local storage
@@ -70,7 +106,7 @@ function updateInvoice(name,cost){
 function addOrder(tag, tableNumber){
   var name = tag.getAttribute("name");
   var cost = tag.getAttribute("cost");
-  if(typeof(Storage)!=="undefined") {
+  if(typeof(localStorage)!=="undefined") {
     var tables=JSON.parse(localStorage.getItem("tables"));
     if(tables[tableNumber]==null){
       tables[tableNumber]=[];
@@ -81,7 +117,7 @@ function addOrder(tag, tableNumber){
       if(name==orders[i].name){
         orders[i].qty+=1;
         localStorage.setItem("tables",JSON.stringify(tables));
-        updateInvoice(name,cost);
+        updateInvoice(orders)
         return;
       }
     }
@@ -91,9 +127,9 @@ function addOrder(tag, tableNumber){
       "cost": cost,
       "qty": 1
     };
-    updateInvoice(order.name,order.cost);
     orders.push(order);
     localStorage.setItem("tables",JSON.stringify(tables));
+    updateInvoice(orders);
   }
 }
 
