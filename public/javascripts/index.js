@@ -1,6 +1,6 @@
 //store active table number
-function setTableNumber(tableNumber){
+function setTable(tableObject){
   if(typeof(Storage)!=='undefined'){
-    localStorage.setItem('activeTableNumber',tableNumber);
+    localStorage.setItem('activeTableNumber',tableObject.getAttribute('data-ref'));
   }
 }
