@@ -75,3 +75,8 @@
         text-align:center;
     }
 }
+
+.table-wrapper {
+  height: 35em;
+  overflow: auto;
+}

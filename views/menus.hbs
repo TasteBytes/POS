@@ -1,4 +1,4 @@
-<div class="ui grid">
+<div class="ui divided grid">
   <div class="five wide column thin border">
     <div class="invoice-box">
       <table class="invoice-table" cellpadding="0" cellspacing="0">
@@ -19,9 +19,38 @@
           </td>
         </tr>
       </table>
-      <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0"><!-- style="display:block;height:300px;overflow:auto" -->
-      </table>
+      <div class="table-wrapper">
+        <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0">
+          <tr class="heading">
+            <td>
+              Item
+            </td>
+
+            <td>
+              Price
+            </td>
+          </tr>
+        </table>
+      </div>
       <table class="invoice-table" id='costs-table' cellpadding="0" cellspacing="0">
+        <tr class="total">
+          <td></td>
+          <td>
+            Sub Total: $0
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+          <td>
+            Tax (9.0%): $0.00
+          </td>
+        </tr>
+        <tr class="total">
+          <td></td>
+          <td>
+            Total: $0.00
+          </td>
+        </tr>
       </table>
     </div>
   </div>

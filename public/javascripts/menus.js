@@ -59,7 +59,7 @@ function updateCostTable(cost) {
           <tr class="total">
             <td></td>
             <td>
-              Tax (9.0%): $${cost*.09}
+              Tax (9.0%): $${(cost*.09).toPrecision(3)}
             </td>
           </tr>
           <tr class="total">
@@ -68,7 +68,7 @@ function updateCostTable(cost) {
               Total: $${cost + cost*.09}
             </td>
           </tr>`
-      $("#costs-table").html(costs)
+          $("#costs-table").html(costs)
 }
 
 //adds order to the table
@@ -83,9 +83,10 @@ function updateInvoice(invoice){
           Price
         </td>
       </tr>`
-  for (var index = 0; index < invoice.length; index++){
+  for (var index = 0; index < invoice.length; index++) {
     costTotal += (parseInt(invoice[index].cost) * invoice[index].qty);
-      orders+=`<tr class="item">
+      orders+=`
+        <tr class="item">
              <td>
               ${invoice[index].qty} ${invoice[index].name}
              </td>
@@ -97,9 +98,6 @@ function updateInvoice(invoice){
   $("#orders-table").html(orders)
   updateCostTable(costTotal);
 }
-
-
-
 
 //adds a new order to the local storage
 //calls updateInvoice
@@ -130,22 +128,5 @@ function addOrder(tag, tableNumber){
     orders.push(order);
     localStorage.setItem("tables",JSON.stringify(tables));
     updateInvoice(orders);
-  }
-}
-
-//test function to read tables storage
-function test() {
-  if (typeof(Storage) !== "undefined") {
-    var tables = JSON.parse(localStorage.getItem("tables"));
-    console.log(tables);
-  }
-}
-
-//test function to reset tables storage
-function resetOrders(tableNumber) {
-  if (typeof(Storage) !== "undefined") {
-    var tables = JSON.parse(localStorage.getItem('tables'));
-    tables[tableNumber]=null;
-    localStorage.setItem("tables",JSON.stringify(tables));
   }
 }

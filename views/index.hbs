@@ -1,6 +1,5 @@
 <div class="ui grid">
   <div class="five wide column thin border">
-
     <div class="invoice-box">
       <table class="invoice-table" cellpadding="0" cellspacing="0">
         <tr class="top">
@@ -13,21 +12,27 @@
 
                 <td>
                   <div class="invoice-order-number">Order #: 0</div>
-                  Table #: {{tableNumber}}
                 </td>
               </tr>
             </table>
           </td>
         </tr>
       </table>
-      <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0"><!-- style="display:block;height:300px;overflow:auto" -->
-      </table>
+      <div class="table-wrapper">
+        <table class="invoice-table" id='orders-table' cellpadding="0" cellspacing="0">
+          <tr class="heading">
+            <td>
+              Item
+            </td>
+            <td>
+              Price
+            </td>
+          </tr>
+        </table>
+      </div>
       <table class="invoice-table" id='costs-table' cellpadding="0" cellspacing="0">
       </table>
     </div>
-    <div class="ui button" onclick="test()">test items</div>
-    <div class="ui button" onclick="testreset()">reset items</div>
-
   </div>
   <div class="eleven wide column thin border">
     <div class="ui four red cards">
@@ -49,16 +54,16 @@
       <a class="red card" href="/4" data-ref="4" onclick="setTable(this)">
         <div class="extra">
           <div>
-          <div style="float:left">
-            Table: 4
-          </div>
-          <div style="float:right">
-            <input type="number" id="input" />
-            <input id="stop" type="button" value="stop"/>
-            <input id="start" type="button" value="start"/>
+            <div style="float:left">
+              Table: 4
+            </div>
+            <div style="float:right">
+              <input type="number" id="input" />
+              <input id="stop" type="button" value="stop" />
+              <input id="start" type="button" value="start" />
 
+            </div>
           </div>
-        </div>
         </div>
       </a>
       <a class="red card" href="/5" data-ref="5" onclick="setTable(this)">
