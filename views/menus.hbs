@@ -52,12 +52,22 @@
           </td>
         </tr>
       </table>
+      <a href="/">
+      <div class="ui large button">
+        Back
+      </div>
+    </a>
+      <div class="ui large button">
+        Submit Order
+      </div>
+      <div class="ui large button">
+        Check Out
+      </div>
     </div>
   </div>
   <div class="eleven wide column">
     <div class="ui pointing secondary menu">
       {{#each menus}}
-
         {{#if @first}}
           <a class="active item" data-tab="{{@key}}">{{@key}}</a>
         {{else}}
