@@ -59,13 +59,13 @@ function updateCostTable(cost) {
           <tr class="total">
             <td></td>
             <td>
-              Tax (9.0%): $${(cost*.09).toPrecision(3)}
+              Tax (9.0%): $${(cost*.09).toFixed(2)}
             </td>
           </tr>
           <tr class="total">
             <td></td>
             <td>
-              Total: $${cost + cost*.09}
+              Total: $${(cost + cost*.09).toFixed(2)}
             </td>
           </tr>`
           $("#costs-table").html(costs)
