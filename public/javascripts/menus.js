@@ -7,6 +7,8 @@ $('.context.example .ui.sidebar')
   .sidebar('attach events', '.context.example .menu .item');
 
 $(document).ready(function() {
+  //set up storage
+  storageSetUp();
   $('.secondary.menu .item').tab({
     history: false
   });
@@ -14,45 +16,23 @@ $(document).ready(function() {
     history: false
   });
   var tableNumber = localStorage.getItem('activeTableNumber');
-  var orderNumber = JSON.parse(localStorage.getItem('orderNumber'));
+  var orderNumber = getOrderNumber();
   $('.invoice-order-number').text('Order #: ' + orderNumber[tableNumber]);
   loadInvoice(tableNumber);
 });;
 
 //update up order number
 function updateOrderNumber(tableNumber) {
-  var orderNumber = JSON.parse(localStorage.getItem('orderNumber'));
+  var orderNumber = getOrderNumber();
   orderNumber[tableNumber]++;
-  localStorage.setItem('orderNumber', JSON.stringify(orderNumber));
+  storeOrderNumber(orderNumber);
   $('.invoice-order-number').text('Order #: ' + orderNumber[tableNumber]);
-}
-
-//set up storage
-if (typeof(Storage) !== "undefined") {
-  var tables = localStorage.getItem("tables");
-  if (tables == null) {
-    tables = '[]';
-    localStorage.setItem("tables", tables);
-  }
-
-  //If this is the first order of the day, set it to one.
-  var orderNumber = JSON.parse(localStorage.getItem("orderNumber"));
-  var tableNumber = localStorage.getItem('activeTableNumber');
-  if (orderNumber == null) {
-    orderNumber = [];
-  }
-  if (orderNumber[tableNumber] == null) {
-    orderNumber[tableNumber] = 1;
-    localStorage.setItem('orderNumber', JSON.stringify(orderNumber));
-  }
-} else {
-  console.log("No Storage");
 }
 
 //loads previous orders from this table
 function loadInvoice(tableNumber) {
   console.log('Table #: ' + tableNumber);
-  var tables = JSON.parse(localStorage.getItem('tables'));
+  var tables = getTables();
   var orders = tables[tableNumber];
   if (orders != null) {
     for (i = 0; i < orders.length; i++) {
@@ -120,7 +100,7 @@ function addOrder(tag, tableNumber) {
   var name = tag.getAttribute("name");
   var cost = tag.getAttribute("cost");
   if (typeof(localStorage) !== "undefined") {
-    var tables = JSON.parse(localStorage.getItem("tables"));
+    var tables = getTables();
     if (tables[tableNumber] == null || tables[tableNumber].length == 0) {
       console.log('New table order added');
       tables[tableNumber] = [];
@@ -131,7 +111,7 @@ function addOrder(tag, tableNumber) {
     for (i = 0; i < orders.length; i++) {
       if (name == orders[i].name) {
         orders[i].qty += 1;
-        localStorage.setItem("tables", JSON.stringify(tables));
+        storeTables(tables);
         updateInvoice(orders)
         return;
       }
@@ -143,14 +123,14 @@ function addOrder(tag, tableNumber) {
       "qty": 1
     };
     orders.push(order);
-    localStorage.setItem("tables", JSON.stringify(tables));
+    storeTables(tables);
     updateInvoice(orders);
   }
 }
 
 function submitOrder() {
   //does nothing
-  console.log(JSON.parse(localStorage.getItem('tables')));
+  console.log(getTables());
 }
 
 //checkout order and pay
@@ -162,8 +142,8 @@ function checkoutOrder() {
 
 //clears order from table
 function clearOrder(tableNumber) {
-  var tables = JSON.parse(localStorage.getItem("tables"));
+  var tables = getTables();
   tables[tableNumber] = [];
-  localStorage.setItem("tables", JSON.stringify(tables));
+  storeTables(tables);
   loadInvoice(tableNumber);
 }

@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
     res.render('index', {
       title: 'TasteBytes - POS',
       styles: ['style.css', 'receipt.css'],
-      javascript: ['index.js', 'timer.js', 'menus.js']
+      javascript: ['index.js', 'timer.js', 'menus.js', 'storage_helper.js']
     });
   } else {
     res.render('login', {
@@ -44,7 +44,7 @@ router.get('/:tableNumber', function(req, res, next) {
           tableNumber: tableNumber,
           title: 'POS - Menus',
           styles: ['style.css', 'receipt.css'],
-          javascript: ['menus.js']
+          javascript: ['menus.js', 'storage_helper.js']
         })
       })
   } else {
