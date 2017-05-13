@@ -25,7 +25,8 @@ router.get('/', function(req, res, next) {
   } else {
     res.render('login', {
       title: 'TasteBytes - POS',
-      styles: ['auth.css']
+      styles: ['auth.css'],
+      javascript: ['login.js']
     });
   }
 });
@@ -50,7 +51,8 @@ router.get('/:tableNumber', function(req, res, next) {
   } else {
     res.render('login', {
       title: 'TasteBytes - POS',
-      styles: ['auth.css']
+      styles: ['auth.css'],
+      javascript: ['login.js']
     });
   }
 });

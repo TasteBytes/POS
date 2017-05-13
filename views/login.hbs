@@ -1,27 +1,48 @@
 <div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <form class="ui large form" action="userlogin" method="post">
-            <div class="ui stacked segment">
-                <h2 class="ui teal image header">
-                    <div class="content">
-                      Welcome Back.
-                    </div>
-                  </h2>
-                <div class="field">
-                    <div class="ui left icon input">
-                        <i class="user icon"></i>
-                        <input type="text" name="email" placeholder="E-mail address">
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="ui left icon input">
-                        <i class="lock icon"></i>
-                        <input type="password" name="password" placeholder="Password">
-                    </div>
-                </div>
-                <input type="submit" class="ui fluid large teal submit button" value="Login"></input>
-            </div>
-            <div class="ui error message"></div>
-        </form>
+  <div class="column">
+    <form class="ui large form" action="userlogin" method="post">
+      <div class="ui stacked segment">
+        <h2 class="ui teal image header">Welcome Back.</h2>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input name="email" type="text" value="jack@foo.com">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" value="Password">
+          </div>
+        </div>
+        <input type="submit" class="ui fluid large teal submit button" value="Login"></input>
+      </div>
+      <div class="ui error message"></div>
+    </form>
+  </div>
+</div>
+
+<div class="field example">
+  <form class="ui form">
+    <div class="field">
+      <label>Empty</label>
+      <input name="empty" type="text">
     </div>
+    <div class="field">
+      <label>Dropdown</label>
+      <select class="ui dropdown" name="dropdown">
+      <option value="">Select</option>
+      <option value="male">Choice 1</option>
+      <option value="female">Choice 2</option>
+    </select>
+    </div>
+    <div class="inline field">
+      <div class="ui checkbox">
+        <input type="checkbox" name="checkbox">
+        <label>Checkbox</label>
+      </div>
+    </div>
+    <div class="ui submit button">Submit</div>
+    <div class="ui error message"></div>
+  </form>
 </div>
