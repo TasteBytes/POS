@@ -1,24 +1,19 @@
-$('.ui.form')
+/*
+$('.ui.large.form')
   .form({
-    empty: {
-      identifier: 'empty',
+    password: {
+      identifier: 'password',
       rules: [{
         type: 'empty',
-        prompt: 'Please enter a value'
+        prompt: 'Please enter your password'
       }]
     },
-    dropdown: {
-      identifier: 'dropdown',
+    email: {
+      identifier: 'email',
       rules: [{
-        type: 'empty',
-        prompt: 'Please select a dropdown value'
-      }]
-    },
-    checkbox: {
-      identifier: 'checkbox',
-      rules: [{
-        type: 'checked',
-        prompt: 'Please check the checkbox'
+        type: 'email',
+        prompt: 'Please enter your email'
       }]
     }
   });
+*/
