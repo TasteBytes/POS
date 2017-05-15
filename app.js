@@ -18,7 +18,9 @@ app.set('view engine', 'hbs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -27,15 +29,20 @@ app.use('/', index);
 //Login the user
 app.post('/userlogin', function(req, res) {
   var UserEmail = req.body['email'];
-	var UserPass = req.body['password'];
-	userService.authenticate(UserEmail, UserPass,
-		function(error, uid) {
-			if (error) {
-				return res.status(500).send(error);
-			} else {
+  var UserPass = req.body['password'];
+  userService.authenticate(UserEmail, UserPass,
+    function(error, uid) {
+      if (error) {
+        res.render('login', {
+          loginError: true,
+          title: 'TasteBytes - POS',
+          styles: ['auth.css'],
+          javascript: ['login.js']
+        });
+      } else {
         return res.redirect('/');
-		}
-	});
+      }
+    });
 });
 
 // catch 404 and forward to error handler
