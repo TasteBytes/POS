@@ -1,6 +1,9 @@
 <div class="ui divided grid">
-  <div class="five wide column thin border">
+  <div class="six wide column thin border">
     <div class="invoice-box">
+        <a href="/" class="ui large button">
+        Back
+        </a>
       <table class="invoice-table" cellpadding="0" cellspacing="0">
         <tr class="top">
           <td colspan="2">
@@ -52,18 +55,29 @@
           </td>
         </tr>
       </table>
-      <a href="/" class="ui large button">
-        Back
-      </a>
       <div class="ui large button" onclick="submitOrder()">
         Submit Order
       </div>
-      <div class="ui large button" onclick="checkoutOrder()">
+      <div class="ui large button" onclick="checkoutOrder()" id="stop" type="button" value="stop">
         Check Out
       </div>
+
+        
+
+        <div class="timer">
+            <span class="hour">00</span>:<span class="minute">00</span>:<span class="second">00</span>
+        </div>
+        <div class="control">
+            <button onClick="timer.start(1000)">Start</button> 
+            <button onClick="timer.stop()">Stop</button> 
+            <button onClick="timer.reset(60)">Reset</button> 
+            <button onClick="timer.mode(1)">Count up</button> 
+            <button onClick="timer.mode(0)">Count down</button>
+        </div>
+
     </div>
   </div>
-  <div class="eleven wide column">
+  <div class="ten wide column">
     <div class="ui pointing secondary menu">
       {{#each menus}}
         {{#if @first}}
